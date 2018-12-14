@@ -8,7 +8,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
 
 function calcular() {
 
-  resultado.className = 'mt-3 alert';
+  resultado.className = 'mt-4 alert';
 
   if (md.value < 60) {
 
@@ -33,3 +33,8 @@ function calcular() {
   md.value = '';
   md.focus();
 }
+
+let modal = document.querySelector('#modal');
+document.querySelector('#ajuda').addEventListener('click', (event) => {
+  $('#modal').modal('toggle');
+});
