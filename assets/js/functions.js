@@ -1,5 +1,6 @@
 let md = document.querySelector('#md')
 let resultado = document.querySelector('#resultado');
+let imagem = document.querySelector('#imagem');
 
 document.querySelector('form').addEventListener('submit', (event) => {
   event.preventDefault();
@@ -9,6 +10,7 @@ document.querySelector('form').addEventListener('submit', (event) => {
 function calcular() {
 
   resultado.className = 'mt-4 alert';
+  imagem.className = '';
 
   if (md.value < 60) {
 
@@ -16,19 +18,23 @@ function calcular() {
 
     if (ef <= 50){
       resultado.classList.add('alert-warning');
+      imagem.src = 'assets/images/professor-me-ajuda-com-esses-pontos-que-faltaram.jpg';
     } else if (ef > 50){
       resultado.classList.add('alert-danger');
+      imagem.src = 'assets/images/sera-que-da.jpg';
     }
 
     if (ef <= 100){
       resultado.innerHTML = `Com ${md.value} de média na disciplina você precisa de <strong>${ef}</strong> pontos no exame final.`;
     } else {
       resultado.innerHTML = 'Nem com 100 pontos no exame final você será aprovado!';
+      imagem.src = 'assets/images/ano-que-vem-tem-de-novo.jpg';
     }
     
   } else {
     resultado.classList.add('alert-success');
     resultado.innerHTML = `Com <strong>${md.value}</strong> pontos você está aprovado!`;
+    imagem.src = 'assets/images/boa-garotoa.jpg';
   }
   md.value = '';
   md.focus();
